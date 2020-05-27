@@ -132,6 +132,16 @@ int main() {
 		if (reg[0] == "ori")    machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "110" + reg[1] + "0010011";
 		if (reg[0] == "andi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "111" + reg[1] + "0010011";
 		
+		if (reg[0] == "mul")      machinecode = "0000001" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
+		if (reg[0] == "mul")      machinecode = "0000001" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
+	 	if (reg[0] == "mulh")     machinecode = "0000001" + reg[3] + reg[2] + "001" + reg[1] + "0110011";
+	 	if (reg[0] == "mulhsu")   machinecode = "0000001" + reg[3] + reg[2] + "010" + reg[1] + "0110011";
+	 	if (reg[0] == "mulhu")    machinecode = "0000001" + reg[3] + reg[2] + "011" + reg[1] + "0110011";
+		if (reg[0] == "div")      machinecode = "0000001" + reg[3] + reg[2] + "100" + reg[1] + "0110011";
+		if (reg[0] == "divu")     machinecode = "0000001" + reg[3] + reg[2] + "101" + reg[1] + "0110011";
+		if (reg[0] == "rem")      machinecode = "0000001" + reg[3] + reg[2] + "110" + reg[1] + "0110011";
+		if (reg[0] == "remu")     machinecode = "0000001" + reg[3] + reg[2] + "111" + reg[1] + "0110011";
+		
 		if (reg[0] == "sw" || reg[0] == "sh" || reg[0] == "sb" || reg[0] == "sd")
 		{
 			imme = reg[2];
@@ -156,8 +166,9 @@ int main() {
 			machinecode = machinecode + "0100011";
 		}
 		
-		
-		if (reg[0] == "mul")   machinecode = "0000001" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
+		if (reg[0] == "slli")  machinecode = "0000000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "001" + reg[1] + "0010011";
+		if (reg[0] == "srli")  machinecode = "0000000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "101" + reg[1] + "0010011";
+		if (reg[0] == "srai")  machinecode = "0100000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "101" + reg[1] + "0010011";
 	
 		cout<<"Machine Code : " << machinecode << endl;
 		cout<<"Inst = ";
