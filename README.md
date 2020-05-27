@@ -9,9 +9,7 @@ Output: 對應的machine code
 
 完成部分: register、SB-type、I-type、S-type、R-type 
 
-main function 中，先將使用者輸入的存為string型態，根據逗號分割input的string，再將分割的四等分存入reg中，reg[0]用來判斷使用者輸入的instruction名稱，reg[1]、reg[2]、reg[3] 用來儲存使用者要input的register位址，接著根據不同的type做if的判斷，並output machine code。
-
-code(main function):
+code撰寫方式 : main function 中，先將使用者輸入的存為string型態，根據逗號分割input的string，再將分割的四等分存入reg中，reg[0]用來判斷使用者輸入的instruction名稱，reg[1]、reg[2]、reg[3] 用來儲存使用者要input的register位址，接著根據不同的type做if的判斷，並output machine code。
 
 //把input 的risc-v分割
 
