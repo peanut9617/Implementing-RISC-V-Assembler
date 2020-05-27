@@ -73,6 +73,7 @@ code(main function):
 		...
 		if (reg[0] == "srai")  machinecode = "0100000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "101" + reg[1] + "0010011";
 		
+		
 // R-type
 		if (reg[0] == "add")   machinecode = "0000000" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
     ...
