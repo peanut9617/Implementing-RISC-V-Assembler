@@ -1,6 +1,12 @@
 #include<iostream>
 #include<string>
+#include <vector>
+#include <sstream>
+
+#define MAX 32
+#pragma warning( disable : 4996 )
 using namespace std;
+
 int main() {
 	cout << "Inst = ";
 	string inst;
@@ -23,6 +29,42 @@ int main() {
 		string tempGet;
 		while (ss >> tempGet) {
 			reg.push_back(tempGet);
+		}
+		
+		for (int i = 0; i < reg.size(); i++)				
+		{
+			if (reg[i] == "x0") reg[i] = "00000";
+			if (reg[i] == "x1") reg[i] = "00001";
+			if (reg[i] == "x2") reg[i] = "00010";
+			if (reg[i] == "x3") reg[i] = "00011";
+			if (reg[i] == "x4") reg[i] = "00100";
+			if (reg[i] == "x5") reg[i] = "00101";
+			if (reg[i] == "x6") reg[i] = "00110";
+			if (reg[i] == "x7") reg[i] = "00111";
+			if (reg[i] == "x8") reg[i] = "01000";
+			if (reg[i] == "x9") reg[i] = "01001";
+			if (reg[i] == "x10") reg[i] = "01010";
+			if (reg[i] == "x11") reg[i] = "01011";
+			if (reg[i] == "x12") reg[i] = "01100";
+			if (reg[i] == "x13") reg[i] = "01101";
+			if (reg[i] == "x14") reg[i] = "01110";
+			if (reg[i] == "x15") reg[i] = "01111";
+			if (reg[i] == "x16") reg[i] = "10000";
+			if (reg[i] == "x17") reg[i] = "10001";
+			if (reg[i] == "x18") reg[i] = "10010";
+			if (reg[i] == "x19") reg[i] = "10011";
+			if (reg[i] == "x20") reg[i] = "10100";
+			if (reg[i] == "x21") reg[i] = "10101";
+			if (reg[i] == "x22") reg[i] = "10110";
+			if (reg[i] == "x23") reg[i] = "10111";
+			if (reg[i] == "x24") reg[i] = "11000";
+			if (reg[i] == "x25") reg[i] = "11001";
+			if (reg[i] == "x26") reg[i] = "11010";
+			if (reg[i] == "x27") reg[i] = "11011";
+			if (reg[i] == "x28") reg[i] = "11100";
+			if (reg[i] == "x29") reg[i] = "11101";
+			if (reg[i] == "x30") reg[i] = "11110";
+			if (reg[i] == "x31") reg[i] = "11111";
 		}
 		
 	
