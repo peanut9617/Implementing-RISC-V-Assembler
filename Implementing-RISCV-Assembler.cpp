@@ -170,6 +170,19 @@ int main() {
 		if (reg[0] == "srli")  machinecode = "0000000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "101" + reg[1] + "0010011";
 		if (reg[0] == "srai")  machinecode = "0100000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "101" + reg[1] + "0010011";
 	
+		
+		if (reg[0] == "add")   machinecode = "0000000" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
+		if (reg[0] == "sub")   machinecode = "0100000" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
+		if (reg[0] == "sll")   machinecode = "0000000" + reg[3] + reg[2] + "001" + reg[1] + "0110011";
+		if (reg[0] == "slt")   machinecode = "0000000" + reg[3] + reg[2] + "010" + reg[1] + "0110011";
+		if (reg[0] == "sltu")  machinecode = "0000000" + reg[3] + reg[2] + "011" + reg[1] + "0110011";
+		if (reg[0] == "xor")   machinecode = "0000000" + reg[3] + reg[2] + "100" + reg[1] + "0110011";
+		if (reg[0] == "srl")   machinecode = "0000000" + reg[3] + reg[2] + "101" + reg[1] + "0110011";
+		if (reg[0] == "sra")   machinecode = "0100000" + reg[3] + reg[2] + "101" + reg[1] + "0110011";
+		if (reg[0] == "or")    machinecode = "0000000" + reg[3] + reg[2] + "110" + reg[1] + "0110011";
+		if (reg[0] == "and")   machinecode = "0000000" + reg[3] + reg[2] + "111" + reg[1] + "0110011";
+		
+		
 		cout<<"Machine Code : " << machinecode << endl;
 		cout<<"Inst = ";
 	}
