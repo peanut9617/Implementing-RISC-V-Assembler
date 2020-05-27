@@ -132,6 +132,31 @@ int main() {
 		if (reg[0] == "ori")    machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "110" + reg[1] + "0010011";
 		if (reg[0] == "andi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "111" + reg[1] + "0010011";
 		
+		if (reg[0] == "sw" || reg[0] == "sh" || reg[0] == "sb" || reg[0] == "sd")
+		{
+			imme = reg[2];
+			imme = TransformToBinary_12bit(stoi(imme));
+			machinecode = machinecode.append(imme, 0, 7);
+			switch (reg[0][1])
+			{
+			case 'b':
+				machinecode = machinecode + reg[1] + reg[3] + "000";
+				break;
+			case 'w':
+				machinecode = machinecode + reg[1] + reg[3] + "010";
+				break;
+			case 'd':
+				machinecode = machinecode + reg[1] + reg[3] + "011";
+				break;
+			case 'h':
+				machinecode = machinecode + reg[1] + reg[3] + "001";
+				break;
+			}
+			machinecode = machinecode.append(imme, 7, 5); 
+			machinecode = machinecode + "0100011";
+		}
+		
+		
 		if (reg[0] == "mul")   machinecode = "0000001" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
 	
 		cout<<"Machine Code : " << machinecode << endl;
