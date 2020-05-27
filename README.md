@@ -14,7 +14,10 @@ Output: 對應的machine code
 code(main function): 
     
 //把input 的risc-v分割
+
 		if (inst[i]== ',' || inst[i]== ')' || inst[i]== '(') )  inst[i] = ' ';
+		
+//
 
 		stringstream ss(inst);
 		string tempGet;
