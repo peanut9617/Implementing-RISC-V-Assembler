@@ -7,6 +7,66 @@
 #pragma warning( disable : 4996 )
 using namespace std;
 
+string bit12(const string&str)
+{
+	if (str == "0")
+		return "000000000000";
+	else {
+		int number, i = 0;
+		number = stoi(str);
+		int bin[MAX], len = 0;
+		do
+		{
+			bin[i] = number % 2;
+			number = number / 2;
+			i++;
+			len++;
+		} 
+		while (number != 1);
+		bin[len] = number;
+		len++;
+		string result;
+
+		for (i = len - 1; i >= 0; i--)
+			result = result + to_string(bin[i]);
+
+		while (result.size() != 12)
+			result = "0" + result;
+
+		return result;
+	}
+}
+string bit5(const string&str)
+{
+	if (str == "0")
+		return "00000";
+	else {
+		int number, i = 0;
+		number = stoi(str);
+		int bin[MAX], len = 0;
+		do
+		{
+			bin[i] = number % 2;
+			number = number / 2;
+			i++;
+			len++;
+		} 
+		while (number != 1);
+		bin[len] = number;
+		len++;
+		string result;
+
+		for (i = len - 1; i >= 0; i--)
+			result = result + to_string(bin[i]);
+
+		while (result.size() != 5)
+			result = "0" + result;
+
+		return result;
+	}
+}
+
+
 int main() {
 	cout << "Inst = ";
 	string inst;
