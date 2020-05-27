@@ -8,7 +8,8 @@ Output: 對應的machine code
 測試方法:
   執行code，輸入risc-v的code(ex. add x2,x3,x4)，會output對應的machine code。
 
-
+完成部分:
+  register、SB-type、I-type、S-type、R-type
 
 code(main function): 
     
