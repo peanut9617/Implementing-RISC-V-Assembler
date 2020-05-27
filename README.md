@@ -23,6 +23,7 @@ code(main function):
 		}
 
 //register
+
 		for (int i = 0; i < reg.size(); i++)				
 		{
 			if (reg[i] == "x0") reg[i] = "00000";
@@ -31,21 +32,25 @@ code(main function):
 		}
 
 // SB-type
+
 		if (reg[0] == "bne")   machinecode = "*******" + reg[2] + reg[1] + "001" + "*****" + "1100011";
 		...
 		if (reg[0] == "bgtu")  machinecode = "*******" + reg[2] + reg[1] + "111" + "*****" + "1100011";
 
 // I-type
+
 		if (reg[0] == "lb")     machinecode = TransformToBinary_12bit(stoi(reg[2])) + reg[3] + "000" + reg[1] + "0000011";
 		...
 		if (reg[0] == "lhu")    machinecode = TransformToBinary_12bit(stoi(reg[2])) + reg[3] + "101" + reg[1] + "0000011";
 		
 // I-type
+
 		if (reg[0] == "addi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "000" + reg[1] + "0010011";
 		...
 		if (reg[0] == "andi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "111" + reg[1] + "0010011";
 
 // S-type
+
 		if (reg[0] == "sd" || reg[0] == "sb" || reg[0] == "sh" || reg[0] == "sw")
 		{
 			imme = reg[2];
@@ -70,12 +75,14 @@ code(main function):
 			machinecode = machinecode + "0100011";
 		}
 //R-type
+
 		if (reg[0] == "slli")  machinecode = "0000000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "001" + reg[1] + "0010011";
 		...
 		if (reg[0] == "srai")  machinecode = "0100000" + TransformToBinary_5bit(stoi(reg[3])) + reg[2] + "101" + reg[1] + "0010011";
 		
 		
 // R-type
+
 		if (reg[0] == "add")   machinecode = "0000000" + reg[3] + reg[2] + "000" + reg[1] + "0110011";
-    ...
+   		 ...
 		if (reg[0] == "and")   machinecode = "0000000" + reg[3] + reg[2] + "111" + reg[1] + "0110011";
