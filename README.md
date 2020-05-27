@@ -1,29 +1,5 @@
 # Implementing-RISC-V-Assembler
-by: 1071648 1043371
 
-Input: 一段RISC-V組語的code
-
-Output: 對應的machine code
-
-測試方法:
-  執行code，輸入risc-v的code(ex. add x2,x3,x4)，會output對應的machine code。
-
-完成部分:
-  register、SB-type、I-type、S-type、R-type
-
-code(main function): 
-    
-//把input 的risc-v分割
-
-		if (inst[i]== ',' || inst[i]== ')' || inst[i]== '(') )  inst[i] = ' ';
-		
-//
-
-		stringstream ss(inst);
-		string tempGet;
-		while (ss >> tempGet) {
-			reg.push_back(tempGet);
-		}
 
 //register
 
