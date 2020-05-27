@@ -2,70 +2,55 @@
 #include<string>
 #include <vector>
 #include <sstream>
-
 #define MAX 32
 #pragma warning( disable : 4996 )
 using namespace std;
 
-string bit12(const string&str)
-{
-	if (str == "0")
+string TransformToBinary_12bit(int HEX){
+	if (HEX == 0)
 		return "000000000000";
-	else {
-		int number, i = 0;
-		number = stoi(str);
-		int bin[MAX], len = 0;
-		do
-		{
-			bin[i] = number % 2;
-			number = number / 2;
-			i++;
-			len++;
-		} 
-		while (number != 1);
-		bin[len] = number;
-		len++;
-		string result;
-
-		for (i = len - 1; i >= 0; i--)
-			result = result + to_string(bin[i]);
-
-		while (result.size() != 12)
-			result = "0" + result;
-
-		return result;
+	string reverse="";
+	int t = Hex;
+	while (t != 0){
+		if (t % 2 == 0)
+			reverse = reverse + "0";
+		else if (t % 2 == 1)
+			reverse = reverse + "1";
+		t /=  2;
 	}
+
+	string a="";
+	for (int i = 11 i >= 0; i--){
+		if(i > reverse.length()-1)
+			a = a + "0";	
+		else
+			a = a +reverse[i];
+	}
+	return a;
 }
-string bit5(const string&str)
-{
-	if (str == "0")
+
+string TransformToBinary_12bit(int HEX){
+	if (HEX == 0)
 		return "00000";
-	else {
-		int number, i = 0;
-		number = stoi(str);
-		int bin[MAX], len = 0;
-		do
-		{
-			bin[i] = number % 2;
-			number = number / 2;
-			i++;
-			len++;
-		} 
-		while (number != 1);
-		bin[len] = number;
-		len++;
-		string result;
-
-		for (i = len - 1; i >= 0; i--)
-			result = result + to_string(bin[i]);
-
-		while (result.size() != 5)
-			result = "0" + result;
-
-		return result;
+	string reverse="";
+	int t = Hex;
+	while (t != 0){
+		if (t % 2 == 0)
+			reverse = reverse + "0";
+		else if (t % 2 == 1)
+			reverse = reverse + "1";
+		t /=  2;
 	}
-}
 
+	string a="";
+	for (int i = 4 i >= 0; i--){
+		if(i > reverse.length() - 1)
+			a = a + "0";	
+		else
+			a = a +reverse[i];
+	}
+	return a;
+}
 
 int main() {
 	cout << "Inst = ";
@@ -127,6 +112,12 @@ int main() {
 			if (reg[i] == "x31") reg[i] = "11111";
 		}
 		
+		if (reg[0] == "addi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "000" + reg[1] + "0010011";
+		if (reg[0] == "slti")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "010" + reg[1] + "0010011";
+		if (reg[0] == "sltu")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "011" + reg[1] + "0010011";
+		if (reg[0] == "xori")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "100" + reg[1] + "0010011";
+		if (reg[0] == "ori")    machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "110" + reg[1] + "0010011";
+		if (reg[0] == "andi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "111" + reg[1] + "0010011";
 	
 	return 0;
 } 
