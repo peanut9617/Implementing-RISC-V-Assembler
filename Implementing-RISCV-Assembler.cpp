@@ -112,6 +112,14 @@ int main() {
 			if (reg[i] == "x31") reg[i] = "11111";
 		}
 		
+		if (reg[0] == "bne")   machinecode = "*******" + reg[2] + reg[1] + "001" + "*****" + "1100011";
+		if (reg[0] == "beq")   machinecode = "*******" + reg[2] + reg[1] + "000" + "*****" + "1100011";
+		if (reg[0] == "blt")   machinecode = "*******" + reg[2] + reg[1] + "100" + "*****" + "1100011";
+		if (reg[0] == "bgt")   machinecode = "*******" + reg[2] + reg[1] + "101" + "*****" + "1100011";
+		if (reg[0] == "bltu")  machinecode = "*******" + reg[2] + reg[1] + "110" + "*****" + "1100011";
+		if (reg[0] == "bgtu")  machinecode = "*******" + reg[2] + reg[1] + "111" + "*****" + "1100011";
+		
+		
 		if (reg[0] == "addi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "000" + reg[1] + "0010011";
 		if (reg[0] == "slti")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "010" + reg[1] + "0010011";
 		if (reg[0] == "sltu")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "011" + reg[1] + "0010011";
