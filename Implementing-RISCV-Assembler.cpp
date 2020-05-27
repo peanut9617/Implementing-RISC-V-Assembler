@@ -119,13 +119,17 @@ int main() {
 		if (reg[0] == "bltu")  machinecode = "*******" + reg[2] + reg[1] + "110" + "*****" + "1100011";
 		if (reg[0] == "bgtu")  machinecode = "*******" + reg[2] + reg[1] + "111" + "*****" + "1100011";
 		
-		
 		if (reg[0] == "addi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "000" + reg[1] + "0010011";
 		if (reg[0] == "slti")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "010" + reg[1] + "0010011";
 		if (reg[0] == "sltu")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "011" + reg[1] + "0010011";
 		if (reg[0] == "xori")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "100" + reg[1] + "0010011";
 		if (reg[0] == "ori")    machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "110" + reg[1] + "0010011";
 		if (reg[0] == "andi")   machinecode = TransformToBinary_12bit(stoi(reg[3])) + reg[2] + "111" + reg[1] + "0010011";
-	
+
+		if (reg[0] == "lb")     machinecode = TransformToBinary_12bit(stoi(reg[2])) + reg[3] + "000" + reg[1] + "0000011";
+		if (reg[0] == "lh")     machinecode = TransformToBinary_12bit(stoi(reg[2])) + reg[3] + "001" + reg[1] + "0000011";
+		if (reg[0] == "lw")     machinecode = TransformToBinary_12bit(stoi(reg[2])) + reg[3] + "010" + reg[1] + "0000011";
+		if (reg[0] == "lbu")    machinecode = TransformToBinary_12bit(stoi(reg[2])) + reg[3] + "100" + reg[1] + "0000011";
+		if (reg[0] == "lhu")    machinecode = TransformToBinary_12bit(stoi(reg[2])) + reg[3] + "101" + reg[1] + "0000011";
 	return 0;
 } 
