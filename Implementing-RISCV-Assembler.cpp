@@ -6,11 +6,11 @@
 #pragma warning( disable : 4996 )
 using namespace std;
 
-string TransformToBinary_12bit(int HEX){
-	if (HEX == 0)
+string TransformToBinary_12bit(int DEC){
+	if (DEC == 0)
 		return "000000000000";
 	string reverse="";
-	int t = Hex;
+	int t = DEC;
 	while (t != 0){
 		if (t % 2 == 0)
 			reverse = reverse + "0";
@@ -29,11 +29,11 @@ string TransformToBinary_12bit(int HEX){
 	return a;
 }
 
-string TransformToBinary_12bit(int HEX){
-	if (HEX == 0)
+string TransformToBinary_12bit(int DEC){
+	if (DEC == 0)
 		return "00000";
 	string reverse="";
-	int t = Hex;
+	int t = DEC;
 	while (t != 0){
 		if (t % 2 == 0)
 			reverse = reverse + "0";
