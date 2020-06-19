@@ -1,5 +1,4 @@
 # Implementing-RISC-V-Assembler
-by: 1071648 1043371
 
 Input: 一段RISC-V組語的code
 
